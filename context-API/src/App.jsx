@@ -1,10 +1,16 @@
 import { useState } from 'react'
+import UserContext from './context/UserContext'
+import UserContextProvider from './context/UserContextProvider'
+import Login from './components/Login'
+import Profile from './components/Profile'
 
 function App() {
+
   return (
-    <>
-    <div className='bg-orange-500'>Ajay</div>
-    </>
+    <UserContextProvider>
+    <Login />
+    <Profile />
+    </UserContextProvider>
   )
 }
 
