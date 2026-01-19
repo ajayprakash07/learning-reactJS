@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import {useState, useContext} from 'react'
 import UserContext from '../context/UserContext.js'
 
 function Login(){
@@ -19,13 +19,13 @@ function Login(){
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder='username'
-            className='text-white border-2 border-blue-500 rounded-md px-4 py-2' />
+            className='text-black border-2 border-blue-500 rounded-md px-4 py-2' />
 
-            <input type="password" 
+            <input type="text" 
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder='Password'
-            className='text-white border-2 border-blue-500 rounded-md px-4 py-2' />
+            className='text-black border-2 border-blue-500 rounded-md px-4 py-2' />
 
             <button onClick={handleSubmit} className='bg-green-500 text-white font-semibold px-6 py-2 rounded-md hover:bg-green-600'>Submit</button>
         </div>

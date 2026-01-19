@@ -1,12 +1,10 @@
 @import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
 
-body {
-  background-color: black;
-  margin: 0;
-  padding: 0;
+.dark .text-black {
+    @apply text-white;
 }
 
-#root {
-  background-color: black;
-  min-height: 100vh;
+.dark .border-black {
+    @apply border-gray-600;
 }
