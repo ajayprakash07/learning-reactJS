@@ -1,11 +1,13 @@
+import { useTodo } from '../contents/TodoContect';
+import { useState } from "react"
 
-export function TodoItem(){
+export function TodoItem(todo){
 
     const [edit, setEdit] = useState(false)
 
     const [todoMsg, setTodoMsg] = useState(todo.todo)
 
-    const {updateTodo , deleteTodo, toggleComplete} =useTodo()
+    const {updateTodo , deleteTodo, toggleComplete} = useTodo()
 
     const editTodo =() => {
         updateTodo(todo.id, {...todo, todo: todoMsg})
@@ -31,11 +33,11 @@ export function TodoItem(){
             <input
                 type="text"
                 className={`border outline-none w-full bg-transparent rounded-lg ${
-                    isTodoEditable ? "border-black/10 px-2" : "border-transparent"
+                    setEdit ? "border-black/10 px-2" : "border-transparent"
                 } ${todo.completed ? "line-through" : ""}`}
                 value={todoMsg}
                 onChange={(e) => setTodoMsg(e.target.value)}
-                readOnly={!isTodoEditable}
+                readOnly={!setEdit}
             />
             {/* Edit, Save Button */}
             <button
@@ -43,13 +45,13 @@ export function TodoItem(){
                 onClick={() => {
                     if (todo.completed) return;
 
-                    if (isTodoEditable) {
+                    if (setEdit) {
                         editTodo();
-                    } else setIsTodoEditable((prev) => !prev);
+                    } else setEdit((prev) => !prev);
                 }}
                 disabled={todo.completed}
             >
-                {isTodoEditable ? "📁" : "✏️"}
+                {setEdit ? "📁" : "✏️"}
             </button>
             {/* Delete Todo Button */}
             <button

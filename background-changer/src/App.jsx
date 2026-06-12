@@ -16,7 +16,7 @@ function App() {
           />
           <br />
           <h1 className="font-bold border-dotted border-black border-2 px-5 py-5"
-          style={{fontSize: size1}}>{tex || "TEST ME" }
+          style={{fontSize: size1}}>{tex || "Text Here" }
           </h1>
         </div>
 
